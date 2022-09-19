@@ -6,6 +6,9 @@
     <tool name="Pin">
       <a name="tristate" val="false"/>
     </tool>
+    <tool name="Pull Resistor">
+      <a name="facing" val="north"/>
+    </tool>
   </lib>
   <lib desc="#Gates" name="1">
     <tool name="OR Gate">
@@ -97,20 +100,15 @@
       <circ-port height="8" pin="210,40" width="8" x="66" y="46"/>
       <circ-anchor facing="east" height="6" width="6" x="77" y="57"/>
     </appear>
-    <wire from="(140,90)" to="(200,90)"/>
-    <wire from="(240,60)" to="(240,70)"/>
-    <wire from="(240,70)" to="(240,80)"/>
-    <wire from="(50,100)" to="(100,100)"/>
-    <wire from="(50,60)" to="(100,60)"/>
-    <wire from="(60,40)" to="(100,40)"/>
-    <wire from="(210,90)" to="(250,90)"/>
-    <wire from="(140,30)" to="(140,60)"/>
-    <wire from="(190,40)" to="(190,70)"/>
-    <wire from="(140,60)" to="(240,60)"/>
     <wire from="(60,80)" to="(90,80)"/>
+    <wire from="(140,90)" to="(200,90)"/>
     <wire from="(50,60)" to="(50,100)"/>
     <wire from="(60,40)" to="(60,80)"/>
+    <wire from="(240,60)" to="(240,70)"/>
+    <wire from="(240,70)" to="(240,80)"/>
     <wire from="(40,40)" to="(60,40)"/>
+    <wire from="(50,100)" to="(100,100)"/>
+    <wire from="(50,60)" to="(100,60)"/>
     <wire from="(130,50)" to="(150,50)"/>
     <wire from="(210,40)" to="(210,90)"/>
     <wire from="(140,30)" to="(150,30)"/>
@@ -119,6 +117,18 @@
     <wire from="(230,80)" to="(240,80)"/>
     <wire from="(240,70)" to="(250,70)"/>
     <wire from="(40,100)" to="(50,100)"/>
+    <wire from="(60,40)" to="(100,40)"/>
+    <wire from="(210,90)" to="(250,90)"/>
+    <wire from="(140,30)" to="(140,60)"/>
+    <wire from="(190,40)" to="(190,70)"/>
+    <wire from="(140,60)" to="(240,60)"/>
+    <comp lib="0" loc="(40,100)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="1" loc="(180,40)" name="OR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
     <comp lib="0" loc="(210,40)" name="Pin">
       <a name="facing" val="south"/>
       <a name="tristate" val="false"/>
@@ -126,14 +136,19 @@
     <comp lib="0" loc="(40,40)" name="Pin">
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="0" loc="(280,80)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="tristate" val="false"/>
-      <a name="labelloc" val="east"/>
+    <comp lib="1" loc="(280,80)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(130,50)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
     </comp>
     <comp lib="6" loc="(59,33)" name="Text">
       <a name="text" val="write"/>
+    </comp>
+    <comp lib="6" loc="(77,120)" name="Text">
+      <a name="text" val="write enable"/>
     </comp>
     <comp lib="6" loc="(256,35)" name="Text">
       <a name="text" val="read enable"/>
@@ -143,30 +158,18 @@
       <a name="inputs" val="2"/>
       <a name="negate0" val="true"/>
     </comp>
-    <comp lib="6" loc="(289,100)" name="Text">
-      <a name="text" val="read"/>
-    </comp>
     <comp lib="1" loc="(230,80)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="1" loc="(180,40)" name="OR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
+    <comp lib="6" loc="(289,100)" name="Text">
+      <a name="text" val="read"/>
     </comp>
-    <comp lib="1" loc="(130,50)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(280,80)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(40,100)" name="Pin">
+    <comp lib="0" loc="(280,80)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
       <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="6" loc="(77,120)" name="Text">
-      <a name="text" val="write enable"/>
+      <a name="labelloc" val="east"/>
     </comp>
   </circuit>
   <circuit name="SR_Zelle_Clock">
@@ -192,69 +195,20 @@
     <wire from="(70,40)" to="(80,40)"/>
     <wire from="(150,40)" to="(150,70)"/>
     <wire from="(150,70)" to="(150,130)"/>
-    <comp lib="0" loc="(70,90)" name="Pin">
+    <comp lib="0" loc="(70,40)" name="Pin">
       <a name="tristate" val="false"/>
     </comp>
     <comp lib="6" loc="(34,95)" name="Text">
       <a name="text" val="set"/>
     </comp>
-    <comp lib="0" loc="(200,70)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="1" loc="(190,120)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="6" loc="(73,20)" name="Text">
-      <a name="text" val="clock"/>
+    <comp lib="0" loc="(70,110)" name="Pin">
+      <a name="tristate" val="false"/>
     </comp>
     <comp lib="6" loc="(218,46)" name="Text">
       <a name="text" val="!Q"/>
     </comp>
-    <comp lib="6" loc="(33,40)" name="Text">
-      <a name="text" val="write"/>
-    </comp>
-    <comp lib="4" loc="(140,90)" name="S-R Flip-Flop"/>
-    <comp lib="6" loc="(28,50)" name="Text">
-      <a name="text" val="enable"/>
-    </comp>
-    <comp lib="0" loc="(220,70)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="6" loc="(198,46)" name="Text">
-      <a name="text" val="Q"/>
-    </comp>
     <comp lib="0" loc="(130,130)" name="Pin">
       <a name="facing" val="north"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(150,40)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="1" loc="(90,80)" name="AND Gate">
-      <a name="facing" val="south"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(70,40)" name="Pin">
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(100,30)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="6" loc="(171,17)" name="Text">
-      <a name="text" val="read enable"/>
-    </comp>
-    <comp lib="6" loc="(32,115)" name="Text">
-      <a name="text" val="reset"/>
-    </comp>
-    <comp lib="0" loc="(70,110)" name="Pin">
       <a name="tristate" val="false"/>
     </comp>
     <comp lib="1" loc="(190,80)" name="AND Gate">
@@ -263,6 +217,55 @@
     </comp>
     <comp lib="6" loc="(130,164)" name="Text">
       <a name="text" val="systemreset"/>
+    </comp>
+    <comp lib="4" loc="(140,90)" name="S-R Flip-Flop"/>
+    <comp lib="0" loc="(220,70)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="6" loc="(33,40)" name="Text">
+      <a name="text" val="write"/>
+    </comp>
+    <comp lib="0" loc="(200,70)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(150,40)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="6" loc="(32,115)" name="Text">
+      <a name="text" val="reset"/>
+    </comp>
+    <comp lib="6" loc="(28,50)" name="Text">
+      <a name="text" val="enable"/>
+    </comp>
+    <comp lib="1" loc="(90,80)" name="AND Gate">
+      <a name="facing" val="south"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(100,30)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="6" loc="(73,20)" name="Text">
+      <a name="text" val="clock"/>
+    </comp>
+    <comp lib="6" loc="(171,17)" name="Text">
+      <a name="text" val="read enable"/>
+    </comp>
+    <comp lib="1" loc="(190,120)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="6" loc="(198,46)" name="Text">
+      <a name="text" val="Q"/>
+    </comp>
+    <comp lib="0" loc="(70,90)" name="Pin">
+      <a name="tristate" val="false"/>
     </comp>
   </circuit>
   <circuit name="SR_Latch">
@@ -286,19 +289,19 @@
     <wire from="(160,240)" to="(230,240)"/>
     <wire from="(100,270)" to="(170,270)"/>
     <wire from="(100,200)" to="(170,200)"/>
+    <comp lib="5" loc="(250,250)" name="LED"/>
     <comp lib="1" loc="(220,210)" name="NAND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
       <a name="negate0" val="true"/>
     </comp>
-    <comp lib="5" loc="(250,220)" name="LED"/>
-    <comp lib="5" loc="(250,250)" name="LED"/>
-    <comp lib="5" loc="(100,270)" name="Button"/>
     <comp lib="1" loc="(220,260)" name="NAND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
       <a name="negate1" val="true"/>
     </comp>
+    <comp lib="5" loc="(250,220)" name="LED"/>
     <comp lib="5" loc="(100,200)" name="Button"/>
+    <comp lib="5" loc="(100,270)" name="Button"/>
   </circuit>
 </project>
